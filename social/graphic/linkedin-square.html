@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Karpathy Codex Discipline</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101216;
+      --panel: #171b21;
+      --ink: #f4f1ea;
+      --muted: #a8adb7;
+      --line: #2f3844;
+      --accent: #34d399;
+      --accent-2: #60a5fa;
+      --warning: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #0b0d10;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .artboard {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(52, 211, 153, 0.16), transparent 28%),
+        linear-gradient(315deg, rgba(96, 165, 250, 0.18), transparent 34%),
+        var(--bg);
+      color: var(--ink);
+      padding: 64px;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 86%);
+    }
+
+    .frame {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      border: 1px solid rgba(244, 241, 234, 0.18);
+      background: rgba(16, 18, 22, 0.62);
+      box-shadow: 0 36px 120px rgba(0, 0, 0, 0.42);
+      padding: 46px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 650;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #07120d;
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .repo {
+      font-variant-ligatures: none;
+      letter-spacing: 0;
+    }
+
+    .main {
+      display: grid;
+      align-content: center;
+      gap: 28px;
+      padding: 42px 0 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 18px;
+      border: 1px solid rgba(52, 211, 153, 0.36);
+      background: rgba(52, 211, 153, 0.11);
+      color: #b8f7da;
+      font-size: 24px;
+      font-weight: 750;
+    }
+
+    .dot {
+      width: 13px;
+      height: 13px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(52, 211, 153, 0.9);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: 82px;
+      line-height: 0.98;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .subhead {
+      max-width: 770px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 31px;
+      line-height: 1.22;
+      font-weight: 520;
+    }
+
+    .command {
+      display: grid;
+      gap: 16px;
+      max-width: 800px;
+      padding: 24px 28px;
+      background: #0b0e12;
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .terminal {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .light {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--warning);
+    }
+
+    .light:nth-child(2) {
+      background: var(--accent);
+    }
+
+    .light:nth-child(3) {
+      background: var(--accent-2);
+    }
+
+    .prompt {
+      color: var(--ink);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 28px;
+      line-height: 1.28;
+      font-weight: 700;
+    }
+
+    .prompt span {
+      color: var(--accent);
+    }
+
+    .footer {
+      display: grid;
+      gap: 20px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      max-width: 670px;
+    }
+
+    .chip {
+      padding: 10px 13px;
+      border: 1px solid rgba(244, 241, 234, 0.16);
+      background: rgba(244, 241, 234, 0.06);
+      color: #d7dbe2;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .url {
+      color: var(--muted);
+      font-size: 23px;
+      font-weight: 700;
+      text-align: left;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="artboard" aria-label="Karpathy Codex Discipline square graphic">
+    <div class="grid" aria-hidden="true"></div>
+    <section class="frame">
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark">K</div>
+          <div>Karpathy Codex Discipline</div>
+        </div>
+        <div class="repo">open-source skill</div>
+      </header>
+
+      <div class="main">
+        <div class="eyebrow"><span class="dot"></span> Adapted for Codex</div>
+        <h1>Make coding agents drift less.</h1>
+        <p class="subhead">A small mode switch for surgical diffs, explicit assumptions, success criteria, and real verification.</p>
+        <div class="command">
+          <div class="terminal" aria-hidden="true">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+          </div>
+          <div class="prompt"><span>&gt;</span> Use Karpathy skill: keep this surgical, state assumptions, define success criteria, and verify.</div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="chips" aria-label="Skill themes">
+          <div class="chip">think first</div>
+          <div class="chip">simplest viable change</div>
+          <div class="chip">surgical diffs</div>
+          <div class="chip">verify before done</div>
+        </div>
+        <div class="url">github.com/pat-spatial/karpathy-codex-discipline</div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
