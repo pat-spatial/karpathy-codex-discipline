@@ -1,5 +1,7 @@
 # LinkedIn Draft
 
+The original `andrej-karpathy-skills` project became popular because it targets common coding-agent failure modes: silent assumptions, overengineering, broad unrelated edits, and unverified "done" claims.
+
 I asked Codex to critically review the popular Karpathy-inspired `CLAUDE.md` coding-agent discipline and adapt it for Codex.
 
 The useful part was not copying the prompt over verbatim. Codex compared the idea against its own existing prompt discipline, identified the overlap, removed redundant instructions, and kept the pieces that make sense as a Codex-native workflow.
