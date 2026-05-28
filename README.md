@@ -2,6 +2,8 @@
 
 A small Codex skill that adapts the Karpathy-inspired `CLAUDE.md` coding-agent discipline to a Codex workflow.
 
+This started as a direct question to Codex: critically review the Karpathy-style skill, compare it against Codex's existing prompt discipline, remove redundancy, and keep only the parts that make the workflow more effective.
+
 The goal is not to add a giant prompt pack. It is to make one useful behavior easy to invoke:
 
 ```text
@@ -31,7 +33,9 @@ It also translates those ideas into Codex-specific mechanics:
 
 The original `andrej-karpathy-skills` project became popular because it targets common coding-agent failure modes: silent assumptions, overengineering, broad unrelated edits, and unverified "done" claims.
 
-Codex already has strong coding-agent discipline in many environments. This skill is therefore best understood as a triggerable emphasis layer: use it when the task is ambiguous, risky, refactor-prone, or likely to invite speculative cleanup.
+Codex already has strong coding-agent discipline in many environments. The useful work was not copying the original prompt verbatim. It was adapting the intent into a Codex-native skill: consistent with Codex tool use, stripped of redundant instructions, and focused on the moments where an explicit discipline switch actually helps.
+
+This skill is therefore best understood as a triggerable emphasis layer: use it when the task is ambiguous, risky, refactor-prone, or likely to invite speculative cleanup.
 
 ## Install
 
@@ -73,3 +77,6 @@ This repository is an independent Codex adaptation, not an official Andrej Karpa
 
 MIT
 
+## Repository
+
+https://github.com/pat-spatial/karpathy-codex-discipline

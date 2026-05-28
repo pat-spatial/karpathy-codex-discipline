@@ -1,8 +1,10 @@
 # LinkedIn Draft
 
-I adapted the popular Karpathy-inspired `CLAUDE.md` coding-agent discipline into a small Codex skill.
+I asked Codex to critically review the popular Karpathy-inspired `CLAUDE.md` coding-agent discipline and adapt it for Codex.
 
-The point is not a larger prompt pack. It is the opposite: a short, triggerable behavior layer for moments when coding agents tend to drift.
+The useful part was not copying the prompt over verbatim. Codex compared the idea against its own existing prompt discipline, identified the overlap, removed redundant instructions, and kept the pieces that make sense as a Codex-native workflow.
+
+The result is a small skill, not a giant prompt pack: a triggerable behavior layer for moments when coding agents tend to drift.
 
 Invocation:
 
@@ -18,9 +20,8 @@ The skill focuses Codex on five habits:
 - work from explicit success criteria;
 - verify before claiming completion.
 
-I also adapted it for Codex-specific workflow details: `rg`-first code discovery, `apply_patch` edits, dirty worktree protection, sandbox approval discipline, and concise reporting of checks and residual risk.
+It is also tuned for Codex-specific workflow details: `rg`-first code discovery, `apply_patch` edits, dirty worktree protection, sandbox approval discipline, and concise reporting of checks and residual risk.
 
 My main takeaway: in a well-instructed Codex environment, this does not unlock a new capability. It acts more like a deliberate mode switch. Use it when the task is ambiguous, refactor-prone, or verification-sensitive.
 
-Repo: [add GitHub URL]
-
+Repo: https://github.com/pat-spatial/karpathy-codex-discipline
