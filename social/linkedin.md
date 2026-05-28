@@ -1,6 +1,6 @@
 # LinkedIn Draft
 
-The original `andrej-karpathy-skills` project became popular because it targets common coding-agent failure modes: silent assumptions, overengineering, broad unrelated edits, and unverified "done" claims.
+The original andrej-karpathy-skills project became popular because it targets common coding-agent failure modes: silent assumptions, overengineering, broad unrelated edits, and unverified "done" claims.
 
 I asked Codex to critically review the popular Karpathy-inspired `CLAUDE.md` coding-agent discipline and adapt it for Codex.
 
